@@ -3,7 +3,7 @@ import useEditorStore from "@/store/editor.store"
 import { FormattedVideoAction } from "@/types"
 import React, { useRef, useEffect, useState } from "react"
 import { FaPlay } from "react-icons/fa"
-import { IoVolumeHigh } from "react-icons/io5"
+// import { IoVolumeHigh } from "react-icons/io5"
 import { TbPlayerPauseFilled } from "react-icons/tb"
 
 interface PreviewVideoProps {
@@ -107,12 +107,12 @@ const PreviewVideo: React.FC<PreviewVideoProps> = ({ videoSrc }) => {
     }
   }
 
-  const handleVolumeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const volume = parseFloat(event.target.value)
-    if (videoRef.current) {
-      videoRef.current.volume = volume
-    }
-  }
+  // const handleVolumeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  //   const volume = parseFloat(event.target.value)
+  //   if (videoRef.current) {
+  //     videoRef.current.volume = volume
+  //   }
+  // }
 
   const handleTimeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const time = parseFloat(event.target.value)
