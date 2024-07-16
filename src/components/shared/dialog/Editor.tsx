@@ -112,7 +112,7 @@ const ModeToggleComponent: React.FC<ModeToggleProps> = ({
   session,
   setSession,
 }) => {
-  const { actionData } = useEditorStore()
+  const { actionData, croppingSession } = useEditorStore()
 
   return (
     <div className="bg-[#45474E] rounded-[6px] px-1 py-1 text-white">
@@ -125,7 +125,7 @@ const ModeToggleComponent: React.FC<ModeToggleProps> = ({
       <Button
         className={`${session == "generate" && "bg-[#37393F] hover:bg-[#37393F]"} rounded-xl`}
         onClick={() => {
-          if (actionData.length == 0) {
+          if (actionData.length == 0 && !croppingSession) {
             toast.info("Please start cropping session")
             return
           }
