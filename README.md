@@ -1,37 +1,47 @@
 # Video Verse Flip Video Editor Assignment
 
-<write_goal_of_assignment>
-
 ## How I solved the problem statement
 
-There are three parts to my solution
+### MAJOR CHECKPOINTS DURING THE ASSIGNMENT
 
-1. Preview Session Component.
-2. Generate Session Component.
-3. Editor store to manage state complete editor state.
+1. Integrating a Video Player
+1. Adding a Cropper Tool
+1. Playing the Cropped Video in Real-Time
+1. Storing and Replaying Session Events
 
-## 🎉 Features
+**Integrating a Video Player**
 
-- **React** - A JavaScript library for building user interfaces.
-- **Vite** - A fast, opinionated frontend build tool.
-- **TypeScript** - A typed superset of JavaScript that compiles to plain JavaScript.
-- **Tailwind CSS** - A utility-first CSS framework.
-- **Tailwind Prettier Plugin** - A Prettier plugin for formatting Tailwind CSS classes.
-- **ESLint** - A pluggable linting utility for JavaScript and TypeScript.
-- **PostCSS** - A tool for transforming CSS with JavaScript.
-- **Autoprefixer** - A PostCSS plugin to parse CSS and add vendor prefixes.
-- **shadcn/ui** - Beautifully designed components that you can copy and paste into your apps.
-- **react-rnd** - A package to implement the cropper funcationality.
-- **react-toast** - A package to show message toast on the UI
+I first tried using react-player, but it didn’t give me enough control. So, I switched to using the default HTML video player and customized it to fit my needs.
 
-## ⚙️ Prerequisites
+**Adding a Cropper Tool**
+
+To add the cropper tool, I used a package called react-rnd. This was easy to work with and I could easily get the coordinates for the cropped part of the video.
+
+**Playing the Cropped Video**
+
+This was a bit tricky. After some research, I found two ways to do it:
+
+1. Use Canvas to show video frames at 24 frames per second (fps).
+
+2. Use another video element and hide the unwanted parts with a parent container.
+   I chose the first method because it allows for real-time changes and is better for adding more features, like text, to the video later.
+
+**Storing and Replaying Session Events**
+For storing all the actions during a session, I used zustand to manage the state. This part was easy. The hard part was replaying the session because it required listening to various events and updating the preview player accordingly.
+
+### App Snapchots
+
+![alt text](image-1.png)
+![alt text](image.png)
+
+### ⚙️ Prerequisites
 
 Make sure you have the following installed on your development machine:
 
 - Node.js (version 18 or above)
 - npm (package manager)
 
-## 🚀 Getting Started
+### 🚀 Getting Started
 
 Follow these steps to get started with the react-vite-ui template:
 
@@ -53,13 +63,13 @@ Follow these steps to get started with the react-vite-ui template:
    npm run dev
    ```
 
-## 📜 Available Scripts
+### 📜 Available Scripts
 
 - npm run dev - Starts the development server.
 - npm build - Builds the production-ready code.
 - npm lint - Runs ESLint to analyze and lint the code.
 
-## 📂 Project Structure
+### 📂 Project Structure
 
 The project structure follows a standard React application layout:
 
