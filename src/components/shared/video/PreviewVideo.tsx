@@ -124,7 +124,6 @@ const PreviewVideo: React.FC<PreviewVideoProps> = ({ videoSrc }) => {
 
   return (
     <>
-      {JSON.stringify(x)}
       <div className="w-[460px] m-auto">
         <div className="flex flex-col">
           <div

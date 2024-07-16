@@ -31,7 +31,7 @@ const Editor = () => {
             </>
           ) : (
             <div className="mt-5 px-5">
-              <PreviewVideo videoSrc="try.mp4" />
+              <PreviewVideo videoSrc="virat.mp4" />
             </div>
           )}
         </DialogContent>

@@ -195,7 +195,7 @@ const VideoPlayer: React.FC = () => {
             >
               <video
                 ref={videoRef}
-                src="try.mp4"
+                src="virat.mp4"
                 className="w-full h-full object-fill "
               />
 
