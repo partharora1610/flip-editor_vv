@@ -1,0 +1,27 @@
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.custom-range {
+  @apply bg-gradient-to-r from-white to-black;
+}
+
+.custom-range::-webkit-slider-thumb {
+  @apply appearance-none w-3 h-3 rounded-full bg-white border border-black cursor-pointer;
+}
+
+.custom-range::-moz-range-thumb {
+  @apply appearance-none w-3 h-3 rounded-full bg-white border border-black cursor-pointer;
+}
+
+.custom-range::-webkit-slider-runnable-track {
+  @apply bg-transparent;
+}
+
+.custom-range::-moz-range-track {
+  @apply bg-transparent;
+}
