@@ -167,7 +167,7 @@ const PreviewVideo: React.FC<PreviewVideoProps> = ({ videoSrc }) => {
                 {formatTime(Math.floor(maxDuration || 0))}
               </div>
 
-              <div className="flex items-center gap-1">
+              {/* <div className="flex items-center gap-1">
                 <IoVolumeHigh className="text-white" size={18} />
                 <input
                   type="range"
@@ -177,7 +177,7 @@ const PreviewVideo: React.FC<PreviewVideoProps> = ({ videoSrc }) => {
                   onChange={handleVolumeChange}
                   className="h-1 w-full bg-transparent pointer-events-auto cursor-pointer"
                 />
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
