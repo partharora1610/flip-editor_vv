@@ -1,15 +1,18 @@
+import { useState } from "react"
+import { toast } from "react-toastify"
+
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogTrigger, DialogContent } from "@/components/ui/dialog"
+
 import VideoPlayer from "../video/VideoPlayer"
 import useEditorStore from "@/store/editor.store"
-import { useState } from "react"
 import PreviewVideo from "../video/PreviewVideo"
-import { toast } from "react-toastify"
 
 type Session = "preview" | "generate"
 
 const Editor = () => {
   const [session, setSession] = useState<Session>("preview")
+
   return (
     <>
       <Dialog open>
@@ -22,6 +25,7 @@ const Editor = () => {
               <div></div>
             </div>
           </div>
+
           {session === "preview" ? (
             <>
               <div className="mt-5 px-5">

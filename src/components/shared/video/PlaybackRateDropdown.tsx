@@ -7,7 +7,6 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { playbackRates } from "@/constants"
-
 import { ScrollArea } from "@/components/ui/scroll-area"
 
 interface PlaybackRateDropdownProps {

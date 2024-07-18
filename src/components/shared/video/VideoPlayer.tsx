@@ -1,15 +1,16 @@
 import React, { useState, useRef, useEffect } from "react"
-import VideoCropper from "./VideoCropper"
-
-import VideoCanvas from "./VideoCanvas"
 import { IoVolumeHigh } from "react-icons/io5"
 import { FaPlay } from "react-icons/fa"
 import { TbPlayerPauseFilled } from "react-icons/tb"
-import { VideoAction } from "@/types"
-import useEditorStore from "@/store/editor.store"
+
+import VideoCropper from "./VideoCropper"
+import VideoCanvas from "./VideoCanvas"
 import PlaybackRateDropdown from "./PlaybackRateDropdown"
 import AspectRatioSelector from "./AspectRatioSelector"
 import NoSessionFallback from "./NoSessionFallback"
+
+import { VideoAction } from "@/types"
+import useEditorStore from "@/store/editor.store"
 import { formatTime } from "@/lib/utils"
 
 const VideoPlayer: React.FC = () => {
@@ -28,28 +29,14 @@ const VideoPlayer: React.FC = () => {
   const [volume, setVolume] = useState<number>(1)
 
   useEffect(() => {
-    const resizeObserver = new ResizeObserver((entries) => {
-      for (const entry of entries) {
-        const { height } = entry.contentRect
-        if (height > 0) {
-          const width = height * sessionAspectRatios.value
-          const playerWidth = entry.target.clientWidth
-          const newX = (playerWidth - width) / 2
-          setCrop({ width, height, x: newX, y: 0 })
-        }
-      }
-    })
+    const containerWidth = 460
+    const containerHeight = 307
 
-    if (playerWrapperRef.current) {
-      resizeObserver.observe(playerWrapperRef.current)
-    }
+    const width = containerHeight * sessionAspectRatios.value
+    const newX = (containerWidth - width) / 2
 
-    return () => {
-      if (playerWrapperRef.current) {
-        resizeObserver.unobserve(playerWrapperRef.current)
-      }
-    }
-  }, [sessionAspectRatios])
+    setCrop({ width, height: containerHeight, x: newX, y: 0 })
+  }, [sessionAspectRatios, setCrop])
 
   // For playback rate
   useEffect(() => {
@@ -121,6 +108,7 @@ const VideoPlayer: React.FC = () => {
     e.target.style.background = `linear-gradient(to right, ${"white"} ${newValue}%, ${"black"} ${newValue}%)`
 
     const volume = parseFloat(e.target.value)
+
     if (videoRef.current) {
       videoRef.current.volume = volume
       setVolume(volume)
